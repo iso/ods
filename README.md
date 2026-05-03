@@ -1,6 +1,6 @@
 # OpenClaw Docker-Setup
 
-Erweitertes Docker-Setup für [OpenClaw](https://github.com/openclaw/openclaw) mit Chromium, Curl und Anbindung an einen lokalen Ollama-Service.
+Einfaches Docker-Setup für [OpenClaw](https://github.com/openclaw/openclaw) mit beispielhafter individueller Image-Erweiterung und Anbindung an einen lokalen Ollama-Service.
 
 ## Architektur
 
