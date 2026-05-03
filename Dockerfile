@@ -35,10 +35,4 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && chromium --version
 
-# Simple wrapper script so the node user can call `openclaw` from anywhere
-# Remove any existing symlink first so we don't overwrite /app/openclaw.mjs
-# RUN rm -f /usr/local/bin/openclaw \
-#     && printf '%s\n' '#!/bin/sh' 'cd /app || exit 1' 'exec node openclaw.mjs "$@"' > /usr/local/bin/openclaw \
-#     && chmod +x /usr/local/bin/openclaw
-
 USER node
