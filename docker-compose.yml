@@ -1,0 +1,47 @@
+services:
+  person1:
+    build: .
+    container_name: openclaw-person1
+    volumes:
+      - person1-data:/home/node/.openclaw
+    environment:
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    # For Linux (Docker Engine): enables host.docker.internal
+    # Comment out on macOS / Windows (Docker Desktop)
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  person2:
+    build: .
+    container_name: openclaw-person2
+    volumes:
+      - person2-data:/home/node/.openclaw
+    environment:
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    # For Linux (Docker Engine): enables host.docker.internal
+    # Comment out on macOS / Windows (Docker Desktop)
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  export:
+    image: alpine:latest
+    container_name: openclaw-export
+    volumes:
+      - person1-data:/data/person1
+      - person2-data:/data/person2
+      - ./exchange:/host-exchange
+    working_dir: /data
+    command:
+      [
+        "/bin/sh",
+        "-c",
+        "echo 'Shell ready. person1 at /data/person1, person2 at /data/person2, host at /host-exchange' && exec /bin/sh",
+      ]
+    stdin_open: true
+    tty: true
+    profiles:
+      - export
+
+volumes:
+  person1-data:
+  person2-data:
