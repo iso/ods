@@ -11,17 +11,17 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  person2:
-    build: .
-    container_name: openclaw-person2
-    volumes:
-      - person2-data:/home/node/.openclaw
-    environment:
-      - OLLAMA_HOST=http://host.docker.internal:11434
-    # For Linux (Docker Engine): enables host.docker.internal
-    # Comment out on macOS / Windows (Docker Desktop)
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+  #person2:
+  #  build: .
+  #  container_name: openclaw-person2
+  #  volumes:
+  #    - person2-data:/home/node/.openclaw
+  #  environment:
+  #    - OLLAMA_HOST=http://host.docker.internal:11434
+  #  # For Linux (Docker Engine): enables host.docker.internal
+  #  # Comment out on macOS / Windows (Docker Desktop)
+  #  extra_hosts:
+  #    - "host.docker.internal:host-gateway"
 
   export:
     image: alpine:latest
