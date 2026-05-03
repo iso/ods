@@ -7,8 +7,8 @@ Erweitertes Docker-Setup für [OpenClaw](https://github.com/openclaw/openclaw) m
 ```mermaid
 graph TD
     subgraph "Docker Compose"
-        P1[person1<br/>openclaw:stable + Chromium]
-        P2[person2<br/>openclaw:stable + Chromium]
+        P1[person1<br/>openclaw:latest + Chromium]
+        P2[person2<br/>openclaw:latest + Chromium]
         E[export<br/>Alpine + vi]
     end
 
@@ -37,7 +37,7 @@ graph TD
 flowchart LR
     A[make clone] -->|GitHub API<br/>latest release| B[openclaw/]
     B --> C[make build]
-    C --> D[openclaw:stable]
+    C --> D[openclaw:latest]
     D --> E[docker compose build]
     E --> F[make up]
     F --> G[Services laufen]
@@ -70,7 +70,7 @@ docker compose exec person2 openclaw onboard
 | Target | Beschreibung |
 |--------|--------------|
 | `make clone` | Klont das neueste OpenClaw-Release (shallow) |
-| `make build` | Baut `openclaw:stable` und das Compose-Projekt |
+| `make build` | Baut `openclaw:latest` und das Compose-Projekt |
 | `make up` | Startet alle Services im Hintergrund |
 | `make down` | Stoppt alle Services |
 | `make setup` | Alias für `clone` + `build` |

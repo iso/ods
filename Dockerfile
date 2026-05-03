@@ -1,4 +1,4 @@
-FROM openclaw:stable
+FROM openclaw:latest
 
 # -----------------------------------------------------------------------------
 # OpenClaw Extended

@@ -35,8 +35,8 @@ rm -rf "$OPENCLAW_DIR"
 git clone --depth 1 --branch "$LATEST_TAG" "$REPO_URL" "$OPENCLAW_DIR"
 
 # Build base image
-echo "Building openclaw:stable ..."
-docker build "$OPENCLAW_DIR" -t openclaw:stable
+echo "Building openclaw:latest (+ ${LATEST_TAG}) ..."
+docker build "$OPENCLAW_DIR" -t openclaw:latest -t "openclaw:${LATEST_TAG}"
 
 # Build compose project
 echo "Building docker compose project ..."
